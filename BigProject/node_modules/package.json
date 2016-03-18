@@ -1,0 +1,8 @@
+{
+	"name": "EnglishLearingPage",
+	"version" : "0.0.1",
+	"description" : "The websize to learn and test english skills",
+	"dependencies": {
+		"mime":"~1.2.7"
+	}
+}
