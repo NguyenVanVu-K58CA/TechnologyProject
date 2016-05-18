@@ -8,12 +8,21 @@ var Listening = require("./models/Listening");
 var Question = require("./models/Question");
 var Reading = require("./models/Reading");
 var User = require("./models/User");
-
+var Schema = mongoose.Schema;
+var callback;
+//console.log(User);
 db.once('open', function() {
-    Model.User = mongoose.model('User', User);
-    Model.Reading = mongoose.model("Reading", Reading);
-    Model.Question = mongoose.model("Question", Question);
-    Model.Listening = mongoose.model("Listening", Listening);
+    Model.User = mongoose.model('User', new Schema(User));
+    Model.Reading = mongoose.model("Reading", new Schema(Reading));
+    Model.Question = mongoose.model("Question", new Schema(Question));
+    Model.Listening = mongoose.model("Listening", new Schema(Listening));
+    if(typeof callback  == 'function'){
+        //console.log(Model);
+        callback(Model);  
+    }
 });
+module.exports = function(cb){
+       callback = cb;
+}
 
-module.export = Model;
+
