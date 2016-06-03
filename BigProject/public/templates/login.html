@@ -2,18 +2,9 @@
 <html>
 <head>
 	<title>Login Page</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	 <!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-	<!-- Latest compiled JavaScript -->
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">>
 	<link rel="stylesheet" type="text/css" href="../stylesheets/login.css">
 	<script type="text/javascript" src="../javascripts/login.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div class="container">
@@ -34,12 +25,12 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
+								<form id="login-form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" ng-model="logdata.username">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" ng-model="logdata.password">
 									</div>
 									<div class="form-group text-center">
 										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -48,7 +39,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In" ng-click="login()">
 											</div>
 										</div>
 									</div>
@@ -56,21 +47,24 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+													<a tabindex="5" class="forgot-password">Forgot Password?</a>
 												</div>
 											</div>
 										</div>
 									</div>
 								</form>
-								<form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+								<form id="register-form" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+										<input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Name" value="" ng-model="regdata.name">
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" ng-model="regdata.username">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" ng-model="regdata.email">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" ng-model="regdata.password">
 									</div>
 									<div class="form-group">
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
@@ -78,7 +72,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now" ng-click="register()">
 											</div>
 										</div>
 									</div>

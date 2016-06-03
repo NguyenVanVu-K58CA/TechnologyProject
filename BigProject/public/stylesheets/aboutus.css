@@ -1,0 +1,12 @@
+img {
+	width: 320px;
+	height: 320px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.navbar {
+	border-bottom: 3px solid red;
+}
