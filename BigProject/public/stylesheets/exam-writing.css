@@ -1,0 +1,17 @@
+.other-modules {
+	list-style-type:  none;
+	padding: 0px;
+}
+
+.other-modules a {
+	width: 160px;
+	margin-top: 6px;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+.text-red {
+	color: red;
+}

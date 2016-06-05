@@ -26,5 +26,26 @@ angular.module('starter', ['starter.controllers', 'starter.services', 'ui.router
 		url: '/login',
 		templateUrl: 'templates/login.html',
 		controller: 'loginCtrl'
-	});
+	})
+	.state('catalogue', {
+		url: '/catalogue', 
+		templateUrl: 'templates/catalogue/catalogue.html'
+	})
+	.state('/1/catalogue/cambridge-ielts-1', {
+		url: '/1/catalogue/cambridge-ielts-1', 
+		templateUrl: 'templates/catalogue/cambridge-ielts-1.html'
+	})
+	.state('/1/exam-instruction/cambridge-ielts-1/listening/practice-test-1', {
+		url: '/1/exam-instruction/cambridge-ielts-1/listening/practice-test-1',
+		templateUrl: 'templates/exam-instruction/cambridge-ielts-1/listening/practice-test-1.html'
+	})
+	.state('/1/exam/cambridge-ielts-1/writing/practice-test-1', {
+		url: '/1/exam/cambridge-ielts-1/writing/practice-test-1',
+		templateUrl: 'templates/exam/cambridge-ielts-1/writing/practice-test-1.html'
+	})
+	.state('/1/exam/cambridge-ielts-1/speaking/practice-test-1', {
+		url: '/1/exam/cambridge-ielts-1/speaking/practice-test-1', 
+		templateUrl: 'templates/exam/cambridge-ielts-1/speaking/practice-test-1.html'
+	})
+	;
 });
