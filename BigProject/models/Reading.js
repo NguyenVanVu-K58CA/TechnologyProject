@@ -1,10 +1,10 @@
 var Reading = {
 	title: String,
-    content: String,
-    question: [{
+    content: [String],
+    questions: [{
         content: String,
         choose: [String],
-        result: Number
+        answer: Number
     }]
 }
 module.exports = Reading;

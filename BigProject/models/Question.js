@@ -1,5 +1,5 @@
 var Question = {
 	content: String,
-	result: String
+	answer: String
 }
 module.exports = Question;
