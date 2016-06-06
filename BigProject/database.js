@@ -1,5 +1,5 @@
 var mongoose    =   require("mongoose");
-mongoose.connect('mongodb://117.103.209.78:27017/OnlineLearning');
+mongoose.connect('mongodb://huuthuc:abc123@ds023593.mlab.com:23593/tech_database');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
