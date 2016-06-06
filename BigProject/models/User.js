@@ -1,5 +1,6 @@
 var User = {
-	name : String,
+	name: String,
+	userName : String,
 	email: String,
 	password: String
 }
