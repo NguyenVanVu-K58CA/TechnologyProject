@@ -8,10 +8,12 @@ angular.module('starter.controllers',[])
 	$scope.regdata = {};
 	$scope.register = function(){
 		console.log(UserService.Create($scope.regdata));
+		$state.go('login');
 	}	
 
 	$scope.login = function(){
 		var data = UserService.GetByUser($scope.logdata);
-		$state.go('/');
+		console.log(data);
+		$state.go('home');
 	}
 });

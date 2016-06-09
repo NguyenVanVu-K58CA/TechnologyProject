@@ -48,3 +48,13 @@ a {
 table td {
   padding: 4px;
 }
+
+#listeningNav {
+  background-color: white;
+  position: fixed;
+  z-index: 2;
+}
+
+table td { 
+    padding: 4px;
+ }

@@ -5,10 +5,9 @@ UserService.$inject = ['$http'];
 
 function UserService ($http) {
 	var service = {};
-    var url = "localhost:3000"
+
 	service.GetAll = GetAll;
-	service.GetById = GetById;
-	service.GetByUsername = GetByUsername;
+	service.GetByUser = GetByUser;
 	service.Create = Create;
 	service.Update = Update;
 	service.Delete = Delete;
@@ -16,23 +15,23 @@ function UserService ($http) {
 	return service;
 
 	function GetAll () {
-		return $http.post(url + '/api/users').then(handleSuccess, handleError('Error getting all users'));
+		return $http.post('/api/user').then(handleSuccess, handleError('Error getting all users'));
 	}
 
 	function GetByUser(user) {
-		return $http.post(url + '/api/user',user).then(handleSuccess, handleError('Error getting user by Id'));
+		return $http.post('/api/user',user).then(handleSuccess, handleError('Error getting user by Id'));
 	}
 
 	function Create(user){
-		return $http.post(url + '/api/users', user).then(handleSuccess, handleError('Error '))
+		return $http.post('/api/user', user).then(handleSuccess, handleError('Error by create user '))
 	}
 
 	function Update(user){
-		return $http.put(url + '/api/users', user).then(handleSuccess, handleError('Error !'));
+		return $http.put('/api/user', user).then(handleSuccess, handleError('Error by Update!'));
 	}
 
 	function Delete(user){
-		return $http.delete(url + '/api/users', user).then(handleSuccess, handleError('Error !'));
+		return $http.delete('/api/user', user).then(handleSuccess, handleError('Error by delete!'));
 	}
 
 	function handleSuccess(res){
@@ -45,3 +44,4 @@ function UserService ($http) {
 		}
 	}
 }
+          
