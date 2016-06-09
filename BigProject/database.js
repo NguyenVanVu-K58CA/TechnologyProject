@@ -14,7 +14,7 @@ var callback;
 db.once('open', function() {
     Model.User = mongoose.model('User', new Schema(User));
     Model.Reading = mongoose.model("Reading", new Schema(Reading));
-    Model.Question = mongoose.model("Question", new Schema(Question));
+    Model.Question = mongoose.model("Question_Bank", new Schema(Question));
     Model.Listening = mongoose.model("Listening", new Schema(Listening));
     if(typeof callback  == 'function'){
         //console.log(Model);

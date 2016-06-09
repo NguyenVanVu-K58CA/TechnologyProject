@@ -1,10 +1,10 @@
 var Listening = {
 	title: String,
-    content: String,
-    question: [{
+    file: String,
+    transcript: String,
+    questions: [{
         content: String,
-        choose: [String],
-        result: Number
+        answers: String,
     }]
 }
 module.exports = Listening;
