@@ -8,7 +8,6 @@ angular.module('starter.controllers',[])
 	$scope.regdata = {};
 	$scope.register = function(){
 		console.log(UserService.Create($scope.regdata));
-		$state.go('login');
 	}	
 
 	$scope.login = function(){

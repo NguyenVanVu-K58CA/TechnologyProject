@@ -51,5 +51,9 @@ angular.module('starter', ['starter.controllers', 'starter.services', 'ui.router
 		url: '/1/exam/cambridge-ielts-1/listening/practice-test-1',
 		templateUrl: 'templates/exam/cambridge-ielts-1/listening/practice-test-1.html'
 	})
+	.state('writing-tip',{
+		url: '/writing-tip',
+		templateUrl: 'templates/writing-tip.html'
+	})
 	;
 });
