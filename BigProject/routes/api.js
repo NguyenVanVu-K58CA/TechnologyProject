@@ -26,6 +26,11 @@ router.route("/user").post(function (req, res) {
             userModel.userName = req.body.userName;
             userModel.email = req.body.email;
             userModel.password = req.body.password;
+            userModel.isAdmin = false;
+
+            if (req.body.isAdmin != null) {
+                userModel.isAdmin = req.body.isAdmin;
+            }
 
             userModel.save(function (err) {
                 response = { "success": !err };
@@ -47,6 +52,9 @@ router.route("/user").post(function (req, res) {
                 }
                 if (req.body.password != null) {
                     user.password = req.body.password;
+                }
+                if (req.body.idAdmin != null) {
+                    user.isAdmin = req.body.isAdmin;
                 }
                 user.save(function (errSave) {
                     response = { "success": !errSave };
@@ -80,25 +88,35 @@ router.route("/login").post(function (req, res) {
             res.json(response);
         });
 });
-router.route("/test")
-    .post(function (req, res) {
-        var QuestDb = req.db.Question;
-        var totalQuestion = req.body.total_question;
-        if (totalQuestion == null) {
-            totalQuestion = 15;
-        }
-        QuestDb.find({})
-            .limit(req.body.total_question)
-            .exec(function (err, questions) {
-                var response;
-                if (err) {
-                    response = { "success": false };
-                } else {
-                    response = { "success": true, questions };
-                }
-                res.json(response);
-            });
-    });
+
+router.route("/test_result").post(function (req, res) {
+    var respone = ['A', 'B', 'A', 'C', 'D', 
+        'C', 'B', 'A', 'D', 'D', 
+        'A', 'A', 'C', 'C', 'D',
+        'B', 'B', 'A', 'B', 'A'];
+    res.json(respone);
+});
+
+// router.route("/test")
+//     .post(function (req, res) {
+//         var QuestDb = req.db.Question;
+//         var totalQuestion = req.body.total_question;
+//         if (totalQuestion == null) {
+//             totalQuestion = 15;
+//         }
+//         QuestDb.find({})
+//             .limit(req.body.total_question)
+//             .exec(function (err, questions) {
+//                 var response;
+//                 if (err) {
+//                     response = { "success": false };
+//                 } else {
+//                     response = { "success": true, questions };
+//                 }
+//                 res.json(response);
+//             });
+//     });
+
 // router.route("/reading")
 //     .post(function(req, res){
 //         var ReadingDb = req.db.Reading;
