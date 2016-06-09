@@ -15,26 +15,27 @@ function UserService ($http) {
 	return service;
 
 	function GetAll () {
-		return $http.post('/api/user').then(handleSuccess, handleError('Error getting all users'));
+		return $http.post('/api/user', {"verb" : "GET_ALL", "userName" : "", "email" : "", "password" : ""});
 	}
 
 	function GetByUser(user) {
-		return $http.post('/api/user',user).then(handleSuccess, handleError('Error getting user by Id'));
+		return $http.post('/api/user', {"verb" : "GET_BY_USER", "userName" : user.username, "email" : user.email, "password" : user.password});
 	}
 
 	function Create(user){
-		return $http.post('/api/user', user).then(handleSuccess, handleError('Error by create user '))
+		return $http.post('/api/user', {"verb" : "CREATE", "userName" : user.username, "email" : user.email, "password" : user.password});
 	}
 
 	function Update(user){
-		return $http.put('/api/user', user).then(handleSuccess, handleError('Error by Update!'));
+		return $http.post('/api/user', {"verb" : "UPDATE", "userName": user.username, "email" : user.email, "password": user.password}).then(handleSuccess, handleError('Error by Update!'));
 	}
 
 	function Delete(user){
-		return $http.delete('/api/user', user).then(handleSuccess, handleError('Error by delete!'));
+		return $http.post('/api/user', {"verb" : "DELETE", "userName": user.username, "email": user.email, "password": user.password}).then(handleSuccess, handleError('Error by delete!'));
 	}
 
 	function handleSuccess(res){
+		console.log("res.data", res.data);
 		return res.data;
 	}
 

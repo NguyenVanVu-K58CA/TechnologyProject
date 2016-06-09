@@ -10,12 +10,15 @@ router.route("/user").post(function (req, res) {
     switch (verb) {
         case "GET_ALL":
             UserDb.find({}, function (err, list) {
+                console.log(list);
                 res.json(list);
+               
             });
             break;
         case "GET_BY_USER":
             var userName = req.body.userName;
             UserDb.findOne({ "userName": userName }, function (err, user) {
+                console.log(user);
                 res.json(user);
             });
             break;

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" type="text/css" href="../../../../stylesheets/style.css"> 
 </head>
-<body>
+<body ng-controller="listeningCtrl">
 	<!-- navigation -->
 	<div class="navbar navbar-border">
 		<div class="container">
@@ -97,19 +97,19 @@
 								<tr>
 									<td style="text-align: center;">
 										<b>A</b>
-										<input name="q1" value="A" type="radio">
+										<input name="q1" value="A" type="radio" ng-model="data.q1">
 									</td>
 									<td style="text-align:center">
 										<b>B</b>
-										<input name="q1" value="B" type="radio">
+										<input name="q1" value="B" type="radio" ng-model="data.q1">
 									</td>
 									<td style="text-align: center">
 										<b>C</b>
-										<input name="q1" value="C" type="radio">
+										<input name="q1" value="C" type="radio" ng-model="data.q1">
 									</td>
 									<td style="text-align: center"> 
 										<b>D</b>
-										<input name="q1" value="D" type="radio">
+										<input name="q1" value="D" type="radio" ng-model="data.q1">
 									</td>
 								</tr>
 							</tbody>
@@ -129,19 +129,19 @@
 								<tr>
 									<td style="text-align: center">
 										<b>A</b>
-										<input name="q2" value="A" type="radio">
+										<input name="q2" value="A" type="radio" ng-model="data.q2">
 									</td>
 									<td style="text-align: center">
 										<b>B</b>
-										<input name="q2" value="B" type="radio">
+										<input name="q2" value="B" type="radio" ng-model="data.q2">
 									</td>
 									<td style="text-align: center">
 										<b>C</b>
-										<input name="q2" value="C" type="radio">
+										<input name="q2" value="C" type="radio" ng-model="data.q2">
 									</td>
 									<td style="text-align: center">
 										<b>D</b>
-										<input name="q2" value="D" type="radio">
+										<input name="q2" value="D" type="radio" ng-model="data.q2">
 									</td>
 								</tr>
 							</tbody>
@@ -471,7 +471,25 @@
 		</div>
 	</div>
 	<div id="myModal"></div>
-	<div id="divConfirm"></div>
+	<div id="divConfirm">
+		<div class="text-center dialog-center">
+			<h3>Are you sure want to submit?</h3>
+			<ul>
+				<li>
+					<button class="btn btn-lg btn-success" ng-click="submit()">
+						<span class="glyphicon glyphicon-send pull-left">
+						</span>
+						 Submit and view Answers
+					</button>
+				</li>
+				<li>
+					<a class="btn btn-lg btn-primary" onclick="$('#divConfirm').hide()">
+						Cancel
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
 	<div id="confirmExit"></div>
 	<div id="divConfirmExit"></div>
 	<div id="timesUpPopout"></div>

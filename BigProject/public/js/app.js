@@ -49,11 +49,29 @@ angular.module('starter', ['starter.controllers', 'starter.services', 'ui.router
 	})
 	.state('/1/exam/cambridge-ielts-1/listening/practice-test-1', {
 		url: '/1/exam/cambridge-ielts-1/listening/practice-test-1',
-		templateUrl: 'templates/exam/cambridge-ielts-1/listening/practice-test-1.html'
+		templateUrl: 'templates/exam/cambridge-ielts-1/listening/practice-test-1.html',
+		controller: 'listeningCtrl'
 	})
 	.state('writing-tip',{
 		url: '/writing-tip',
-		templateUrl: 'templates/writing-tip.html'
+		templateUrl: 'templates/tip/writing_tip.html'
 	})
-	;
+	.state('admin', {
+		url: '/admin', 
+		templateUrl: 'templates/admin.html',
+		controller: 'adminCtrl'
+	})
+	.state('reading-tip', {
+		url: '/reading-tip', 
+		templateUrl: 'templates/tip/reading_tip.html'
+	})
+	.state('listening-tip', {
+		url: '/listening-tip',
+		templateUrl: 'templates/tip/listening_tip.html'
+	})
+	.state('listeningResult', {
+		url: '/1/result/cambridge-ielts-1/listening/practice-test-1',
+		templateUrl: 'templates/result/cambrige-ielts-1/listening/practice-test-1.html',
+		controller: 'resultListeningCtrl'
+	});
 });
