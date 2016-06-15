@@ -12,7 +12,7 @@ router.route("/user").post(function (req, res) {
             UserDb.find({}, function (err, list) {
                 console.log(list);
                 res.json(list);
-               
+
             });
             break;
         case "GET_BY_USER":
@@ -68,9 +68,19 @@ router.route("/user").post(function (req, res) {
             break;
         case "DELETE":
             var userName = req.body.userName;
-            UserDb.remove({ "userName": userName }, function (err) {
-                response = { "success": !err };
-                res.json(response);
+            UserDb.findOne({ "userName": userName }, function (err, user) {
+                if (err || user == null) {
+                    response = { "success": false };
+                    res.json(response);
+                } else {
+                    user.remove(function (errDelete) {
+                        response = { "success": !errDelete };
+                        res.json(response);
+                    })
+                }
+
+
+
             })
             break;
     }
@@ -93,8 +103,8 @@ router.route("/login").post(function (req, res) {
 });
 
 router.route("/test_result").post(function (req, res) {
-    var respone = ['A', 'B', 'A', 'C', 'D', 
-        'C', 'B', 'A', 'D', 'D', 
+    var respone = ['A', 'B', 'A', 'C', 'D',
+        'C', 'B', 'A', 'D', 'D',
         'A', 'A', 'C', 'C', 'D',
         'B', 'B', 'A', 'B', 'A'];
     res.json(respone);
