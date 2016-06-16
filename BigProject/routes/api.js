@@ -62,16 +62,16 @@ router.route("/user").post(function (req, res) {
                 user.save(function (errSave) {
                     response = { "success": !errSave };
                     res.json(response);
-                })
+                });
 
-            })
+            });
             break;
         case "DELETE":
             var userName = req.body.userName;
             UserDb.remove({ "userName": userName }, function (err) {
                 response = { "success": !err };
                 res.json(response);
-            })
+            });
             break;
     }
 });
@@ -93,10 +93,7 @@ router.route("/login").post(function (req, res) {
 });
 
 router.route("/test_result").post(function (req, res) {
-    var respone = ['A', 'B', 'A', 'C', 'D', 
-        'C', 'B', 'A', 'D', 'D', 
-        'A', 'A', 'C', 'C', 'D',
-        'B', 'B', 'A', 'B', 'A'];
+    var respone = {'q1' : 'A', 'q2' : 'B', 'q3' : 'A', 'q4' : 'C', 'q5':'D'};
     res.json(respone);
 });
 

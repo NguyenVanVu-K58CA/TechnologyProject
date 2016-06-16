@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Score for IELTS 1 - Listening Practice Test 1</title>
+    <link rel="stylesheet" type="text/css" href="../../../../stylesheets/listening_result.css">
 </head>
 <body ng-controller="resultListeningCtrl">
 	<!--navigation -->
@@ -48,13 +49,13 @@
 					<div class="col-md-12 score-container">
 						<div class="col-md-8 col-xs-9 text-right">
 							<h1>
-								<strong style="font-weight: 700">0.0</strong>
+								<strong style="font-weight: 700px;">{{score}}</strong>
 							</h1>
 						</div>
 					</div>
 					<h5>
 						Correct answer:
-						<b>0/41</b>
+						<b>{{count}}/41</b>
 						questions
 					</h5>
 					<h3>Answers</h3>
@@ -64,8 +65,8 @@
     						<table class="table table-bordered table-condensed text-left" style="max-width: 90%">
                 				<tbody>
                 					<tr>
-                            			<td style="width: 10%"><b>1.</b> A: <span style="font-style: italic"></span> <span class="glyphicon glyphicon-remove" style="color: red"></span></td>
-                            			<td style="width: 10%"><b>22.</b> A: <span style="font-style: italic"></span> <span class="glyphicon glyphicon-remove" style="color: red"></span></td>
+                            			<td style="width: 10%"><b>1.</b> A: <span style="font-style: italic"></span> <span class="glyphicon" ng-class="check(1)" ng-style="{'color': checkstyle(1)}"></span></td>
+                            			<td style="width: 10%"><b>22.</b> A: <span style="font-style: italic"></span> <span class="glyphicon" ng-class="check(21)" ng-style="{'color':checkstyle(21)}"></span></td>
                 					</tr>
                 					<tr>
                             			<td style="width: 10%"><b>2.</b> C: <span style="font-style: italic"></span> <span class="glyphicon glyphicon-remove" style="color: red"></span></td>

@@ -69,3 +69,25 @@ table td {
     left: 0;
     z-index: 1111;
  }
+
+ #clockdiv {
+  list-style-type: none;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+ }
+
+ #clockdiv .clock {
+  background-color: black;
+  border-radius: 3px;
+  color: white;
+ }
+
+ button.toggle-visibility {
+    padding: 0 3px !important;
+    font-size: 10px;
+    line-height: 1;
+ }

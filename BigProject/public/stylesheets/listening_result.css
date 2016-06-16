@@ -1,0 +1,9 @@
+.score-container {
+	align-items: center;
+	display: flex;
+}
+
+.score-container h1 {
+	font-size: 100px;
+	margin-top: 0;
+}

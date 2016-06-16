@@ -5,6 +5,33 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" type="text/css" href="../../../../stylesheets/style.css"> 
+  	<script type="text/javascript">
+  		var m = 40;
+		var s = 0;
+		var timeout = null;
+
+		function start() {
+			// body...
+			if (s === -1){
+				m -= 1;
+				 s = 59;
+			}
+
+			if (m === -1){
+				clearTimeout(timeout);
+				alert('Time up');
+				return false;
+			}
+
+			document.getElementById('minutes').innerText = m.toString();
+			document.getElementById('seconds').innerText = s.toString();
+
+			timeout = setTimeout(function() { s--; start(); }, 1000);
+
+		}
+
+		setTimeout(function(){start();},0);
+  	</script>
 </head>
 <body ng-controller="listeningCtrl">
 	<!-- navigation -->
@@ -24,7 +51,11 @@
 				<div id="clockContainer" class="col-xs-3">
 					<ul id="clockdiv">
 						<li class="toggle-visibility" style="font-size: 10px">Time left</li>
-						<li class="clock toggle-visibility"></li>
+						<li class="clock toggle-visibility">
+							<span id="minutes"></span>
+							:
+							<span id="seconds"></span>
+						</li>
 						<li>
 							<button class="btn btn-primary btn-xs toggle-visibility " data-original-title="Temporary hide the clock. This will not stop the clock" onclick="$('.toggle-visibility').toggle()" data-toggle="tooltip"
 							data-placement="bottom" title="">Hide</button>
@@ -53,7 +84,11 @@
 	<!--content -->
 	<div class="container pad-bottom-100">
 		<div class="col-sm-8 pad-bottom-20">
-			<div></div>	
+			<div>
+				
+            	<iframe scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/260676223&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false" frameborder="no" height="110" width="100%"></iframe>
+        
+			</div>	
 			<div class="tab-content">
 				<div id="sectionAds3" class="tab-pane"></div>
 				<div id="section30" class="tab-pane fade active in">
@@ -97,19 +132,19 @@
 								<tr>
 									<td style="text-align: center;">
 										<b>A</b>
-										<input name="q1" value="A" type="radio" ng-model="data.q1">
+										<input name="q1" value="A" type="radio" require="" ng-model="ans.q1">
 									</td>
 									<td style="text-align:center">
 										<b>B</b>
-										<input name="q1" value="B" type="radio" ng-model="data.q1">
+										<input name="q1" value="B" type="radio" require="" ng-model="ans.q1">
 									</td>
 									<td style="text-align: center">
 										<b>C</b>
-										<input name="q1" value="C" type="radio" ng-model="data.q1">
+										<input name="q1" value="C" type="radio" require="" ng-model="ans.q1">
 									</td>
 									<td style="text-align: center"> 
 										<b>D</b>
-										<input name="q1" value="D" type="radio" ng-model="data.q1">
+										<input name="q1" value="D" type="radio" require="" ng-model="ans.q1">
 									</td>
 								</tr>
 							</tbody>
@@ -129,19 +164,19 @@
 								<tr>
 									<td style="text-align: center">
 										<b>A</b>
-										<input name="q2" value="A" type="radio" ng-model="data.q2">
+										<input name="q2" value="A" type="radio" require="" ng-model="ans.q2">
 									</td>
 									<td style="text-align: center">
 										<b>B</b>
-										<input name="q2" value="B" type="radio" ng-model="data.q2">
+										<input name="q2" value="B" type="radio" require="" ng-model="ans.q2">
 									</td>
 									<td style="text-align: center">
 										<b>C</b>
-										<input name="q2" value="C" type="radio" ng-model="data.q2">
+										<input name="q2" value="C" type="radio" require="" ng-model="ans.q2">
 									</td>
 									<td style="text-align: center">
 										<b>D</b>
-										<input name="q2" value="D" type="radio" ng-model="data.q2">
+										<input name="q2" value="D" type="radio" require="" ng-model="ans.q2">
 									</td>
 								</tr>
 							</tbody>
@@ -153,22 +188,22 @@
 						</p>
 						<p>
 							<b>A</b>
-							<input type="radio" name="q3" value="A">
+							<input type="radio" name="q3" value="A" required="" ng-model="ans.q3">
 							wallet, pens and novel
 						</p>
 						<p>
 							<b>B</b>
-							<input type="radio" name="q3" value="B">
+							<input type="radio" name="q3" value="B" required="" ng-model="ans.q3">
 							papers and wallet
 						</p>
 						<p>
 							<b>C</b>
-							<input type="radio" name="q3" value="C">
+							<input type="radio" name="q3" value="C" required="" ng-model="ans.q3">
 							pens and novel
 						</p>
 						<p>
 							<b>D</b>
-							<input type="radio" name="q3" value="D">
+							<input type="radio" name="q3" value="D" required="" ng-model="ans.q3">
 							papers, pends novel
 						</p>
 						<p>
@@ -185,19 +220,19 @@
 								<tr>
 									<td style="text-align: center">
 										<b>A</b>
-										<input type="radio" name="q4" >
+										<input type="radio" name="q4" required="" ng-model="ans.q4" >
 									</td>
 									<td style="text-align: center">
 										<b>B</b>
-										<input type="radio" name="q4">
+										<input type="radio" name="q4" required="" ng-model="ans.q4">
 									</td>
 									<td style="text-align: center">
 										<b>C</b>
-										<input type="radio" name="q4">
+										<input type="radio" name="q4" ng-model="ans.q4">
 									</td>
 									<td style="text-align: center">
 										<b>D</b>
-										<input type="radio" name="q4">
+										<input type="radio" name="q4" ng-model="ans.q4">
 									</td>
 								</tr>
 							</tbody>
@@ -217,19 +252,19 @@
 								<tr>
 									<td style="text-align:center">
 										<b>A</b>
-										<input type="radio" name="q5" value="A">
+										<input type="radio" name="q5" value="A" ng-model="ans.q5">
 									</td>
 									<td style="text-align:center">
 										<b>B</b>
-										<input type="radio" name="q5" value="B">
+										<input type="radio" name="q5" value="B" ng-model="ans.q5">
 									</td>
 									<td style="text-align:center">
 										<b>C</b>
-										<input type="radio" name="q5" value="C">
+										<input type="radio" name="q5" value="C" ng-model="ans.q5">
 									</td>
 									<td style="text-align:center">
 										<b>D</b>
-										<input type="radio" name="q5" value="D">
+										<input type="radio" name="q5" value="D" ng-model="ans.q5">
 									</td>
 								</tr>
 							</tbody>
