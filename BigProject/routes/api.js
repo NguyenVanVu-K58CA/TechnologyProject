@@ -68,12 +68,6 @@ router.route("/user").post(function (req, res) {
             break;
         case "DELETE":
             var userName = req.body.userName;
-<<<<<<< HEAD
-            UserDb.remove({ "userName": userName }, function (err) {
-                response = { "success": !err };
-                res.json(response);
-            });
-=======
             UserDb.findOne({ "userName": userName }, function (err, user) {
                 if (err || user == null) {
                     response = { "success": false };
@@ -85,10 +79,7 @@ router.route("/user").post(function (req, res) {
                     })
                 }
 
-
-
             })
->>>>>>> 38803de009ab81fa8fa74b54a86f919a2348f72f
             break;
     }
 });
@@ -112,12 +103,6 @@ router.route("/login").post(function (req, res) {
 router.route("/test_result").post(function (req, res) {
 <<<<<<< HEAD
     var respone = {'q1' : 'A', 'q2' : 'B', 'q3' : 'A', 'q4' : 'C', 'q5':'D'};
-=======
-    var respone = ['A', 'B', 'A', 'C', 'D',
-        'C', 'B', 'A', 'D', 'D',
-        'A', 'A', 'C', 'C', 'D',
-        'B', 'B', 'A', 'B', 'A'];
->>>>>>> 38803de009ab81fa8fa74b54a86f919a2348f72f
     res.json(respone);
 });
 
