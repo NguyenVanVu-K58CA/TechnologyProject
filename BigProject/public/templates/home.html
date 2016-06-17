@@ -4,7 +4,7 @@
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="../stylesheets/home.css">
 </head>
-<body>
+<body ng-controller="loginCtrl">
 	<!--navitigation -->
 	<div class="container">
 		<div class="header row">
@@ -29,7 +29,8 @@
 							<li><a href="">Giảng viên</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập/Đăng ký</a></li>
+							<li ng-show="data == null"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập/Đăng ký</a></li>
+							<li ng-show="data != null">{{data.userName}}</li>
 						</ul>
 					</div>
 				</div>
@@ -96,7 +97,7 @@
 						</a>
 					</div>
 					<div class="col-sm-5">
-						<a href="#/catalogue">
+						<a href="#/catalogue" ng-click="forceLog()">
 							<img src="../image/test.png">
 							<h3>Kiểm tra</h3>
 						</a>

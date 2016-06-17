@@ -8,7 +8,7 @@ angular.module('starter', ['starter.controllers', 'starter.services', 'ui.router
 	.state('home', {
 		url : '/',
 		templateUrl: 'templates/home.html',
-		controller: 'homeCtrl'
+		controller: 'loginCtrl'
 	})
 	.state('aboutus', {
 		url : '/aboutus',

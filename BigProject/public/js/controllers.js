@@ -1,7 +1,5 @@
 angular.module('starter.controllers',[])
-.controller('homeCtrl', function  () {
-	// body...
-})
+.controller('homeCtrl', function(){})
 .controller('adminCtrl', function($scope, UserService, messages){
 
 
@@ -27,12 +25,15 @@ angular.module('starter.controllers',[])
 				console.log(err);
 			}	
 		);
+
+		return true;
 	}
 })
-.controller('loginCtrl',function ($scope, UserService, $state) {
+.controller('loginCtrl',function ($scope, UserService, $state, messages) {
 	// body...
 	$scope.logdata = {};
 	$scope.regdata = {};
+	$scope.data = null;
 	$scope.register = function(){
 		console.log(UserService.Create($scope.regdata));
 	}	
@@ -41,7 +42,9 @@ angular.module('starter.controllers',[])
 		var data = {};
 		UserService.GetByUser($scope.logdata).then(
 			function(res){
-				console.log("res",res.data);
+				messages.user =  res.data;
+				messages.isLogIn = true;
+				console.log("res",messages.user);
 				if (res.data.userName == "A" && res.data.password == "12"){
 					$state.go('admin');
 				}
@@ -53,6 +56,12 @@ angular.module('starter.controllers',[])
 				console.log("err", err);
 			});
 	}
+
+	$scope.data = messages.user;
+
+	messages.user = null;
+
+	console.log('$scope.data', $scope.data);
 })
 .controller('listeningCtrl', function($scope, $http, $state, messages){
 

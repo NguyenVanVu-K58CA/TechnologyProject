@@ -7,6 +7,8 @@ angular.module('starter.services', [])
 	messages.result = [];
 	messages._ans = [];
 	messages.del = 1;
+	messages.isLogIn = false;
+	messages.user = null;
 
 	messages.addresult = function(message){
 		messages.result.push(message);

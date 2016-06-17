@@ -46,7 +46,7 @@
 					
 		<table class="table table-striped">
 			<tbody>
-				<tr ng-repeat="item in data">
+				<tr ng-repeat="item in data" ng-hide="remove(item)">
 					<td>{{item.userName}}</td>
 					<td>{{item.email}}</td>
 					<td><button class="btn btn-danger" ng-click="remove(item)"><span class="glyphicon glyphicon-trash"></span> Remove</button></td>
