@@ -101,7 +101,6 @@ router.route("/login").post(function (req, res) {
 });
 
 router.route("/test_result").post(function (req, res) {
-<<<<<<< HEAD
     var respone = {'q1' : 'A', 'q2' : 'B', 'q3' : 'A', 'q4' : 'C', 'q5':'D'};
     res.json(respone);
 });
