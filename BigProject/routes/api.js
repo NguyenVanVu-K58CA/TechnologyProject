@@ -68,10 +68,13 @@ router.route("/user").post(function (req, res) {
             break;
         case "DELETE":
             var userName = req.body.userName;
+<<<<<<< HEAD
             UserDb.remove({ "userName": userName }, function (err) {
                 response = { "success": !err };
                 res.json(response);
             });
+=======
+>>>>>>> fa34ee588d218bc19e23894a907b1d17c111206c
             UserDb.findOne({ "userName": userName }, function (err, user) {
                 if (err || user == null) {
                     response = { "success": false };
@@ -82,8 +85,6 @@ router.route("/user").post(function (req, res) {
                         res.json(response);
                     })
                 }
-
-
 
             })
             break;
@@ -107,7 +108,11 @@ router.route("/login").post(function (req, res) {
 });
 
 router.route("/test_result").post(function (req, res) {
+<<<<<<< HEAD
     var respone = {'q1' : 'A', 'q2' : 'C', 'q3' : 'D', 'q4' : 'D', 'q5':'C', 'q6' : 'Prescott', 'q7' : '41', 'q8' : 'Fountain', 'q9' :'752239', 'q10':'65', 'q11' : 'E/F/H', 'q12':'E/F/H', 'q13' :'E/F/H', 'q14' : '250 millions', 'q15' : 'road', 'q16' : 'too late'};
+=======
+    var respone = {'q1' : 'A', 'q2' : 'B', 'q3' : 'A', 'q4' : 'C', 'q5':'D'};
+>>>>>>> fa34ee588d218bc19e23894a907b1d17c111206c
     res.json(respone);
 });
 
